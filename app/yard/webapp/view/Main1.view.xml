@@ -1,0 +1,346 @@
+<mvc:View
+    controllerName="com.app.yard.controller.Main"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
+    height="100%"
+>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Image
+                    height="1.5rem"
+                    class="sapUiSmallMarginBegin"
+                    src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+                />
+                <Title
+                    level="H1"
+                    text="Product Name"
+                    wrapping="false"
+                    id="productName"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Disappear" />
+                    </layoutData>
+                </Title>
+                <Text
+                    text="Second Title"
+                    wrapping="false"
+                    id="secondTitle"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Disappear" />
+                    </layoutData>
+                </Text>
+                <ToolbarSpacer />
+                <!-- <SearchField width="16rem" id="searchField">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" group="1"/>
+					</layoutData>
+				</SearchField> -->
+                <ToolbarSpacer id="spacer">
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            priority="Low"
+                            group="1"
+                        />
+                    </layoutData>
+                </ToolbarSpacer>
+                <!-- <Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/> -->
+                <!-- <OverflowToolbarButton icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</OverflowToolbarButton>
+				<OverflowToolbarButton icon="sap-icon://card" type="Transparent" tooltip="Action 2" text="Action 2">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</OverflowToolbarButton>
+				<ToolbarSeparator>
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</ToolbarSeparator> -->
+                <!-- <OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/> -->
+                <Button
+                    icon="sap-icon://bell"
+                    type="Transparent"
+                    tooltip="Notification"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+                <tnt:ToolHeaderUtilitySeparator />
+                <ToolbarSpacer width="1.125rem" />
+                <Avatar
+                    src="test-resources/sap/tnt/images/Woman_avatar_01.png"
+                    displaySize="XS"
+                    press=".onAvatarPressed"
+                    tooltip="Profile"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Avatar>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:subHeader>
+            <tnt:ToolHeader>
+                <IconTabHeader
+                    selectedKey="{/selectedKey}"
+                    items="{path: '/navigation'}"
+                    select=".onItemSelect"
+                    mode="Inline"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            priority="NeverOverflow"
+                            shrinkable="true"
+                        />
+                    </layoutData>
+                    <items>
+                        <IconTabFilter
+                            items="{items}"
+                            text="{title}"
+                            key="{key}"
+                            interactionMode="SelectLeavesOnly"
+                        >
+                            <items>
+                                <IconTabFilter
+                                    text="{title}"
+                                    key="{key}"
+                                />
+                            </items>
+                        </IconTabFilter>
+                    </items>
+                </IconTabHeader>
+            </tnt:ToolHeader>
+        </tnt:subHeader>
+        <tnt:mainContents>
+            <NavContainer
+                id="pageContainer"
+                initialPage="page1"
+            >
+                <pages>
+                    <ScrollContainer
+                        id="page1"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Text text="Home" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page2"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <FlexBox
+            justifyContent="Center"
+            alignItems="Center"
+            class="sapUiTinyMarginTop"
+        >
+            <VBox class="sapUiSmallMargin">
+                <Label text="Vehicle No:" />
+                <Input value="{localModel>/vehicalDetails/vehicalNo}" />
+
+                <Label text="Driver Name:" />
+                <Input value="{localModel>/vehicalDetails/driverName}" />
+
+                <Label text="Phone:" />
+                <Input
+                    value="{localModel>/vehicalDetails/phone}"
+                    type="Number"
+                />
+            
+                <Label text="Vehicle Type:" />
+                <Input value="{localModel>/vehicalDetails/vehicalType}" />
+
+               
+                <HBox >
+                <Text text="ProcessType"/>
+    <Switch change=".onChange" class="sapUiMedium" customTextOn="Inward" customTextOff="OutWard"/></HBox>
+     <Label text="Plot No:" />
+                <Input value="{localModel>/vehicalDetails/plotNo_plot_NO}" />
+                
+                <HBox class="sapUiTinyMarginTop">
+                    <Button
+                        text="Assign"
+                        press="onAssignPress"
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text="UnAssign"
+                        press="onUnAssignPress"
+                        class="sapUiTinyMarginBegin"
+                    />
+                </HBox>
+            </VBox>
+        </FlexBox>
+
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page3"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Table
+                            id="idAllSlots"
+                            alternateRowColors="true"
+                            backgroundDesign="Transparent"
+                            items="{/PlotNOs}"
+                            width="30%"
+                            
+                            
+                        >
+                            <columns>
+                                <Column id="idSlotNO" >
+                                    <Title
+                                        id="idSlotNotitle"
+                                        text="SlotNo"
+                                    />
+                                </Column>
+                                 <Column id="idStatus" >
+                                    <Title
+                                        id="idStatustitle"
+                                        text="Status"
+                                    />
+                                </Column>
+                                <Column id="idInboundOrOutbound" >
+                                    <Title
+                                        id="idInboundOrOutboundtitle"
+                                        text="Type"
+                                    />
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem id="idColumnListAllSlots">
+                                    <cells>
+                                        <Text
+                                            id="idSlotNoValue"
+                                            text="{plot_NO}"
+                                        />
+                                    </cells>
+                                    <cells>
+                                        <Text
+                                            id="idStatusValue"
+                                            text="{
+                                                path: 'available',
+                                                formatter: '.statusTextFormatter'
+                                            }"
+                                        />
+                                    </cells>
+                                    <cells>
+                                        <Text
+                                            id="idInboundOrOutboundValue"
+                                            text="{inBoundOroutBound}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page4"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Text text="Identity" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page5"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                         <Table
+                            id="idAllSlots1"
+                            alternateRowColors="true"
+                            backgroundDesign="Transparent"
+                            items="{/PlotNOs}"
+                            width="30%"
+                            
+                            
+                        >
+                            <columns>
+                                <Column id="idSlotNO1" >
+                                    <Title
+                                        id="idSlotNotitle1"
+                                        text="SlotNo"
+                                    />
+                                </Column>
+                                 <Column id="idStatus1" >
+                                    <Title
+                                        id="idStatustitle1"
+                                        text="Status"
+                                    />
+                                </Column>
+                                <Column id="idInboundOrOutbound1" >
+                                    <Title
+                                        id="idInboundOrOutboundtitle1"
+                                        text="Type"
+                                    />
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem id="idColumnListAllSlots1">
+                                    <cells>
+                                        <Text
+                                            id="idSlotNoValue1"
+                                            text="{plot_NO}"
+                                        />
+                                    </cells>
+                                    <cells>
+                                        <Text
+                                            id="idStatusValue1"
+                                            text="{
+                                                path: 'available',
+                                                formatter: '.statusTextFormatter'
+                                            }"
+                                        />
+                                    </cells>
+                                    <cells>
+                                        <Text
+                                            id="idInboundOrOutboundValue1"
+                                            text="{inBoundOroutBound}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page6"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Text text="Monitoring" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="page7"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Text text="Resources" />
+                    </ScrollContainer>
+                </pages>
+            </NavContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

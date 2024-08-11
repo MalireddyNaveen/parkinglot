@@ -1,0 +1,57 @@
+
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout">
+ <Popover
+        id="idUserDetailsDialog"
+        resizable="true"
+       titleAlignment="Center"
+        placement ="PreferredLeftOrFlip"
+        class="popOverClass"
+    >
+    <customHeader>
+            <Bar>
+            <contentLeft>
+            <Text text="Profile" class="heading"></Text>
+            </contentLeft>
+                <contentRight>
+                    <Button
+                        id="iDcancelbtn11"
+                        icon="sap-icon://sys-cancel"
+                        press="onCloseUserDetails"
+                        type="Default"
+                    />
+                </contentRight>
+            </Bar>
+        </customHeader>
+       
+       <f:Card>
+        <f:content>
+            <l:VerticalLayout class="sapUiContentPadding">
+                <HBox alignItems="Center">
+                    <Avatar
+                            initials=""
+                            tooltip=""
+                            fallbackIcon=""
+                             />
+                    <VBox class="sapUiTinyMarginBegin">
+                        <Title id="userTitle" />
+                        <Text id="userRole" />
+                    </VBox>
+                </HBox>
+                <!-- <Title text="Contact Details"/> -->
+                <Label text="Phone Number :" class="user"/>
+                <Text id="phone" class="user1" />
+                <Label text="Email :" class="user"/>
+                <Text id="email" class="user1" />
+                <!-- <Label text="Email" />
+                <Text text="personData>/email}" /> -->
+            </l:VerticalLayout>
+        </f:content>
+    </f:Card>
+
+         </Popover>
+           
+</core:FragmentDefinition>
+ 
+ 

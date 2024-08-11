@@ -1,0 +1,52 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="com.app.yard.controller.Allotment"
+>
+    <Page
+        title="Enter Vehicle Details"
+        class="sapUiContentPadding"
+    >
+        <FlexBox
+            justifyContent="Center"
+            alignItems="Center"
+            class="sapUiTinyMarginTop"
+        >
+            <VBox class="sapUiSmallMargin">
+                <Label text="Vehicle No:" />
+                <Input value="{localModel>/vehicalNo}" />
+
+                <Label text="Driver Name:" />
+                <Input value="{localModel>/driverName}" />
+
+                <Label text="Phone:" />
+                <Input
+                    value="{localModel>/phone}"
+                    type="Number"
+                />
+
+                <Label text="Vehicle Type:" />
+                <Input value="{localModel>/vehicalType}" />
+
+               
+                <HBox ><Text text="ProcessType"/>
+    <Switch change=".onChange" class="sapUiMedium" customTextOn="Inward" customTextOff="OutWard"/></HBox>
+     <Label text="Plot No:" />
+                <Input value="{localModel>/plotNo_plot_NO}" />
+                
+                <HBox class="sapUiTinyMarginTop">
+                    <Button
+                        text="Assign"
+                        press="onAssignPress"
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text="UnAssign"
+                        press="onUnAssignPress"
+                        class="sapUiTinyMarginBegin"
+                    />
+                </HBox>
+            </VBox>
+        </FlexBox>
+    </Page>
+</mvc:View>

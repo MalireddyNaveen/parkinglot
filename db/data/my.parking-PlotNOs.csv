@@ -1,0 +1,47 @@
+plot_NO,vehicleType,processType,available,reserved
+P001,14-22 Ft,Inward,true,false
+P002,14-22 Ft,Inward,true,false
+P003,14-22 Ft,Inward,true,false
+P004,14-22 Ft,Inward,true,false
+P023,14-22 Ft,Inward,true,false
+P024,14-22 Ft,Inward,true,false
+P025,14-22 Ft,Inward,true,false
+P026,14-22 Ft,Inward,true,false
+P027,14-22 Ft,Inward,true,false
+P005,14-22 Ft,OutWard,true,false
+P006,14-22 Ft,OutWard,true,false
+P007,14-22 Ft,OutWard,true,false
+P028,14-22 Ft,Outward,true,false
+P029,14-22 Ft,Outward,true,false
+P030,14-22 Ft,Outward,true,false
+P031,14-22 Ft,Outward,true,false
+P032,14-22 Ft,Outward,true,false
+P033,14-22 Ft,Outward,true,false
+P034,14-22 Ft,Outward,true,false
+P035,14-22 Ft,Outward,true,false
+P008,23-32 Ft,Inward,true,false
+P009,23-32 Ft,Inward,true,false
+P010,23-32 Ft,Inward,true,false
+P011,23-32 Ft,Inward,true,false
+P036,23-32 Ft,Inward,true,false
+P037,23-32 Ft,Inward,true,false
+P038,23-32 Ft,Inward,true,false
+P039,23-32 Ft,Inward,true,false
+P040,23-32 Ft,Inward,true,false
+P012,23-32 Ft,OutWard,true,false
+P013,23-32 Ft,OutWard,true,false
+P014,23-32 Ft,OutWard,true,false
+P015,23-32 Ft,OutWard,true,false
+P016,23-32 Ft,OutWard,true,false
+P041,23-32 Ft,OutWard,true,false
+P042,23-32 Ft,OutWard,true,false
+P043,23-32 Ft,OutWard,true,false
+P044,23-32 Ft,OutWard,true,false
+P045,23-32 Ft,OutWard,true,false
+P046,23-32 Ft,OutWard,true,false
+P017,Van/3Wheeler,OutWard,true,false
+P018,Van/3Wheeler,Inward,true,false
+P019,Van/3Wheeler,Inward,true,false
+P020,Van/3Wheeler,Inward,true,false
+P021,Van/3Wheeler,Inward,true,false
+P022,Van/3Wheeler,OutWard,true,false

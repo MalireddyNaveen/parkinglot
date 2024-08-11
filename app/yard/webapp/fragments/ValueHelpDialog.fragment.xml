@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog"
+		title="Products"
+		items="{
+            path: 'ModelV2>/PlotNOs',
+             filters: [{ path: 'available', operator: 'EQ', value1: true },{ path: 'reserved', operator: 'EQ', value1: false }]
+        }"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"
+			title="{ModelV2>plot_NO}"
+			 />
+	</SelectDialog>
+</core:FragmentDefinition>

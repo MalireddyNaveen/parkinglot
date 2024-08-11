@@ -1,0 +1,43 @@
+
+{
+    "selectedKey": "page1",
+    "class": "pages",
+    "navigation": [
+     
+        {
+            "title": "Gate Entry System",
+            "key": "page1",
+            "icon": "sap-icon://pie-chart",
+            "visable": true
+        },
+        {
+            "title": "Transit-inward",
+            "key": "page2",
+            "icon": "sap-icon://inventory"
+        },
+        {
+            "title": "Transit-outward",
+            "class": "page3",
+            "key": "page3",
+            "icon": "sap-icon://activity-2"
+        },
+        {
+            "title": "Door-Docking",
+            "key": "page4",
+            "icon": "sap-icon://complete"
+        },
+        {
+            "title":
+            "Parkingslot_assignment-outward",
+            "key": "page5",
+            "icon": "sap-icon://action"
+        },
+        {
+            "title": "check-out",
+            "key": "page6",
+            "icon": "kpi-managing-my-area"
+        }
+       
+    ]
+}
+ 

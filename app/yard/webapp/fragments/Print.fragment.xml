@@ -1,0 +1,78 @@
+
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        id="idprint"
+        
+        resizable="true"
+        draggable="true"
+        
+    >
+        <content>
+        <Button id="onPrintPress1" text="print"></Button>
+            <f:SimpleForm
+                id="formId"
+                layout="ResponsiveGridLayout"
+                editable="true"
+                title="Assign"
+            >
+                <f:content>
+                    <Label
+                        text="Vehicle Number"
+                       
+                        
+                    />
+                    <Text
+                        text="{localModel>/vehicalDetails/vehicalNo}"
+                        
+                    />
+
+                    <Label
+                        text="Driver Name"
+                       
+                       
+                    />
+                    <Text
+                        text="{localModel>/vehicalDetails/driverName}"
+                        
+                    />
+
+                    <Label
+                        text="Driver Phone Number"
+                        
+                      
+                    />
+                    <Text
+                        text="{localModel>/vehicalDetails/phone}"
+                       
+                    />
+
+                    <Label
+                        text="Parking Slot Number"
+                       
+                        
+                    />
+                    <Text
+                        text="{localModel>/vehicalDetails/plotNo_plot_NO}"
+                       
+                    />
+
+                    <Label
+                        text="Entry Date and Time"
+            
+                        
+                    />
+                    <Text
+                        text="{localModel>/vehicalDetails/assignedDate}"
+                        
+                    />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+       
+    </Dialog>
+</core:FragmentDefinition>

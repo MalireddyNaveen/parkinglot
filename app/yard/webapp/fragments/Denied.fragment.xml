@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+<VBox id="idPageError">
+            <IllustratedMessage
+                                description="You do not have the necessary permissions to access this page."
+                                title="Access Denied"
+                                illustrationType="sapIllus-UnableToLoad"
+                                visible="{= ${/hasError} }"
+                            />
+</VBox>
+</core:FragmentDefinition>

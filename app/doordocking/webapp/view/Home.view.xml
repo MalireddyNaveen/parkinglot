@@ -1,0 +1,612 @@
+
+<mvc:View
+    controllerName="com.app.doordocking.controller.Home"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
+    xmlns:mdc="sap.ui.mdc"
+    xmlns:mdcValueHelp="sap.ui.mdc.valuehelp"
+    xmlns:mdcValueHelpContent="sap.ui.mdc.valuehelp.content"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:chart="sap.suite.ui.commons"
+    xmlns:microchart="sap.suite.ui.microchart"
+    height="100%"
+>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader class="header">
+                <Button
+                    id="sideNavigationToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press=".onSideNavButtonPress"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+ 
+                <Image
+                    height="1.5rem"
+                    class="sapUiSmallMarginBegin"
+                    src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+                />
+ 
+             
+                <Title
+                    level="H1"
+                    text="Gate Entry Check-in and Door Assignment"
+                    wrapping="false"
+                    class="TitleMain"
+                    id="parkinglotallotment"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Disappear" />
+                    </layoutData>
+                </Title>
+                <Text
+                    wrapping="false"
+                    id="secondTitle"
+                    class="TitleBOX"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="Disappear" />
+                    </layoutData>
+                </Text>
+ 
+                <ToolbarSpacer width="1.125rem" />
+ 
+                <ToolbarSpacer>
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            priority="NeverOverflow"
+                            minWidth="20px"
+                        />
+                    </layoutData>
+                </ToolbarSpacer>
+ 
+                <Button
+                    id="idNotification"
+                    icon="sap-icon://bell"
+                    type="Transparent"
+                    press="onNotificationPress"
+                    tooltip="Notification"
+                    class="line-md--bell-alert-loop"
+                >
+                    <customData>
+                        <BadgeCustomData
+                            id="idbadge"
+                            class="badge"
+                            visible="true"
+                        />
+                    </customData>
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+                <!-- <Button
+                    id="idTextName"
+                    text="Kalyani"
+                    type="Transparent"
+                    press=".handleUserNamePress"
+                    ariaHasPopup="Menu"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button> -->
+                <Avatar
+                    src="test-resources/sap/tnt/images/Woman_avatar_01.png"
+                    displaySize="XS"
+                    press="onAvatarPressed"
+                    tooltip="Profile"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Avatar>
+            </tnt:ToolHeader>
+        </tnt:header>
+ 
+       
+
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                expanded="true"
+                selectedKey="{/selectedKey}"
+                itemSelect=".onItemSelect"
+                class="nav"
+            >
+                <tnt:NavigationList
+                    items="{path: '/navigation'}"
+                    class="nav"
+                >
+                    <tnt:NavigationListItem
+                        text="{title}"
+                        icon="{icon}"
+                        enabled="{enabled}"
+                        expanded="{expanded}"
+                        items="{items}"
+                        class="nav"
+                        key="{key}"
+                    >
+                        <tnt:NavigationListItem
+                            text="{title}"
+                            key="{key}"
+                            enabled="{enabled}"
+                            class="nav"
+                        />
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
+                <tnt:fixedItem>
+                    <tnt:NavigationList
+                        items="{path: '/fixedNavigation'}"
+                        class="nav"
+                    >
+                        <tnt:NavigationListItem
+                            icon="{icon}"
+                            class="nav"
+                        />
+                    </tnt:NavigationList>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <NavContainer
+                id="pageContainer"
+                initialPage="page2"
+                class="pages"
+            >
+               <pages>
+    <ScrollContainer
+        id="page1"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages"
+    >
+     <VBox >
+            <Bar>
+                <contentLeft>
+                    <Text text="Gate Entry System" class="TitleBOX" />
+                </contentLeft>
+                <contentRight>
+                    <Button
+                        id="cancelbtn11"
+                        press="onPrintPress"
+                        type="Default"
+                        class="line-md--download-outline-loop"
+                    />
+                    <Button
+                        id="cancelbtn12"
+                        press="onCameraPress"
+                        type="Default"
+                        tooltip="save"
+                        icon="sap-icon://save"
+                        class="mdi--camera-wireless-outline"
+                    />
+                </contentRight>
+            </Bar>
+           
+            </VBox>
+           
+        <form:SimpleForm
+            id="simpleForm"
+            layout="ResponsiveGridLayout"
+            editable="true"
+            labelSpanL="4"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsL="1"
+            columnsM="1"
+        >
+       
+            <form:content>
+            <VBox>
+                <HBox>
+                    <VBox class="sapUiMediumMargin">
+                        <Label text="Plant" />
+                        <Input id="plantInput" />
+ 
+                        <Label text="Purchasing Document" />
+                        <Input id="purchasingDocInput" />
+ 
+                        <Label text="ASN No" />
+                        <Input id="asnNoInput" />
+ 
+                        <Label text="Supplier" />
+                        <Input id="supplierInput" />
+ 
+                        <Label text="City" />
+                        <Input id="cityInput" />
+                    </VBox>
+ 
+                    <VBox class="sapUiMediumMargin">
+                        <Label text="PO Date" />
+                        <DatePicker id="poDateInput" />
+ 
+                        <Label text="Invoice Date" />
+                        <DatePicker id="invoiceDateInput" />
+ 
+                        <Label text="Vendor Invoice No" />
+                        <Input id="vendorInvoiceNoInput" />
+ 
+                        <Label text="Vendor Invoice Amount" />
+                        <Input id="vendorInvoiceAmountInput" />
+                    </VBox>
+ 
+                    <VBox class="sapUiMediumMargin">
+                        <Label text="Vehicle No" />
+                        <Input id="vehicleNoInput" />
+ 
+                        <Label text="Transport Name" />
+                        <Input id="transportNameInput" />
+ 
+                        <Label text="Name of the Person" />
+                        <Input id="personNameInput" />
+                    </VBox>
+                </HBox>
+                 
+               </VBox>
+            </form:content>
+           
+        </form:SimpleForm>
+       
+                <Table
+                            id="idAllSlots"
+                            alternateRowColors="true"
+                            backgroundDesign="Transparent"
+                            items="{/PlotNOs}"
+                            class="pages"
+                        >
+                            <columns>
+                                <Column id="iditem">
+                                    <Title
+                                        id="iditems"
+                                        text="Item"
+                                        class="Title"
+                                    />
+                                </Column>
+ 
+                                <Column id="idclDescription">
+                                    <Title
+                                        id="idDescription"
+                                        text="Description"
+                                        class="Title"
+                                    />
+                                </Column>
+                               
+                                <Column id="idPacks">
+                                    <Title
+                                        id="idtpacks"
+                                        text="No.of Packs"
+                                        class="Title"
+                                    />
+                                </Column>
+                               
+                                <Column id="idRecquan">
+                                    <Title
+                                        id="iddRecquan"
+                                        text="Recevied Qunatity"
+                                        class="Title"
+                                    />
+                                </Column>
+                               
+                                <Column id="Idval">
+                                    <Title
+                                        id="idDval"
+                                        text="Value"
+                                        class="Title"
+                                    />
+                                </Column>
+                            </columns>
+ 
+                            <items>
+                                <ColumnListItem
+                                    id="idColumnListAllSlots"
+                                    class="pages"
+                                >
+                                    <cells>
+                                        <Text
+                                            id="idSlotNoValue"
+                                            text="{plot_NO}"
+                                        />
+                                    </cells>
+                                    <cells>
+                                        <Text
+                                            id="idStatusValue"
+                                            text="{= ${available} ? ${reserved}? 'Reserved':'Available' : 'Occupied'}"
+                                        />
+                                    </cells>
+                                    <!-- <cells>
+                                        <Text
+                                            id="idInboundOrOutboundValue"
+                                            text="{inBoundOroutBound}"
+                                        />
+                                    </cells> -->
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+ 
+    </ScrollContainer>
+       <ScrollContainer
+       
+            id="page2"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages">
+          <form:SimpleForm
+        class="simpleform"
+        id="simpleFormm"
+        layout="ResponsiveGridLayout"
+        width="45%"
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        singleContainerFullSize="true">
+ 
+        <form:content>
+            <VBox>
+           
+                <Title text="Transit Pass Inward"></Title>
+                <Label ></Label>
+<HBox>
+                    <CheckBox text="Dock" selected="true" />
+                    <CheckBox text="UnDock" selected="true" />
+                    <CheckBox text="Invoice" selected="true" />
+                    </HBox>
+                    <Label ></Label>
+                    <Label id="idlabelTp" text="Transit Pass:"></Label>
+                <Input id="idinputT" value="" width="50%"></Input>
+ 
+                <Label id="idlabel1" text="VehicleNumber:"></Label>
+                <Input id="idinput1" value="" width="50%"></Input>
+ 
+                <!-- <Label id="idlabel2" text="OutBound Parking Lot:"></Label>
+                <Input id="idinput2" value="" width="50%"></Input>
+  -->
+                <Label id="idlabel3" text="VehicleType:"></Label>
+                <Input id="idinput3" value="" width="50%"></Input>
+ 
+                <Label id="idlabel4" text="DriverName:"></Label>
+                <Input id="idinput4" value="" width="50%"></Input>
+ 
+                <Label id="idlabel5" text="Driver Phone Number:"></Label>
+                <Input id="idinput5" value="" width="50%"></Input>
+ 
+                <Label id="idlabel6" text="RDC/Store:"></Label>
+                <Input id="idinput6" value="" width="50%"></Input>
+ 
+                <Label id="idlabel7" text="Warehouse Door:"></Label>
+                <Input id="idinput7" value="" width="50%"></Input>
+ 
+                <HBox>
+                    <Button id="idbtn2" text="Save" press="onSaveBtn" type="Accept" />
+                    <Button id="idbtn3" text="Print" press="onPrintBtn" type="Reject" class="printbtn" />
+                </HBox>
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+ 
+          </ScrollContainer>
+           <ScrollContainer
+            id="page3"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages">
+ 
+        <form:SimpleForm
+        class="simpleform"
+        id="simpleFormm1"
+        layout="ResponsiveGridLayout"
+        width="45%"
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        singleContainerFullSize="true">
+ 
+        <form:content>
+            <VBox>
+           
+                <Title text="Transit Pass outward"></Title>
+                <Label ></Label>
+<HBox>
+                    <CheckBox text="Dock" selected="true" />
+                    <CheckBox text="UnDock" selected="true" />
+                    <CheckBox text="Invoice" selected="true" />
+                    </HBox>
+                    <Label ></Label>
+                     <Label id="idlabelTp1" text="Transit Pass:"></Label>
+                <Input id="idinputT1" value="" width="50%"></Input>
+ 
+                <Label id="idlabel21" text="VehicleNumber:"></Label>
+                <Input id="idinput21" value="" width="50%"></Input>
+ 
+                <Label id="idlabel22" text="OutBound Parking Lot:"></Label>
+                <Input id="idinput22" value="" width="50%"></Input>
+ 
+                <Label id="idlabel23" text="VehicleType:"></Label>
+                <Input id="idinput23" value="" width="50%"></Input>
+ 
+                <Label id="idlabel24" text="DriverName:"></Label>
+                <Input id="idinput24" value="" width="50%"></Input>
+ 
+                <Label id="idlabel25" text="Driver Phone Number:"></Label>
+                <Input id="idinput25" value="" width="50%"></Input>
+ 
+                <Label id="idlabel26" text="RDC/Store:"></Label>
+                <Input id="idinput26" value="" width="50%"></Input>
+ 
+                <Label id="idlabel27" text="Warehouse Door:"></Label>
+                <Input id="idinput27" value="" width="50%"></Input>
+ 
+                <HBox>
+                    <Button id="idbtn22" text="Save" press="onSaveBtn" type="Accept" />
+                    <Button id="idbtn23" text="Print" press="onPrintBtnoutWard" type="Reject" class="printbtn" />
+                </HBox>
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+   
+            </ScrollContainer>
+ 
+              <ScrollContainer
+               id="page4"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages">
+ 
+         <form:SimpleForm
+        class="simpleform"
+        id="simpleForm5"
+        layout="ResponsiveGridLayout"
+        width="25%"
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        singleContainerFullSize="true">
+ 
+        <form:content>
+            <VBox>
+           
+                <Title text="Door Docking"></Title>
+                <Label ></Label>
+ 
+                <Label id="idlabel41" text="TransitPassNumber:"></Label>
+                <Input id="idinput41" value="" width="50%"></Input>
+ 
+                <Label id="idlabel32" text="Warehouse Door:"></Label>
+                <Input id="idinput32" value="" width="50%"></Input>
+ 
+               
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+                </ScrollContainer>
+                  <ScrollContainer
+                   id="page5"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages">
+ 
+          <form:SimpleForm
+        class="simpleform"
+        id="simpleForm3"
+        layout="ResponsiveGridLayout"
+        width="25%"
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        singleContainerFullSize="true">
+ 
+        <form:content>
+            <VBox>
+           
+                <Title text="Parking Slot Allocation (outward)"></Title>
+                <Label ></Label>
+ 
+                <Label id="idlabel31" text="VehicleNumber:"></Label>
+                <Input id="idinput31" value="" width="50%"></Input>
+ 
+                <Label id="idlabel382" text="DriverName:"></Label>
+                <Input id="idinput382" value="" width="50%"></Input>
+ 
+                <Label id="idlabel33" text="Driver Phone Number:"></Label>
+                <Input id="idinput33" value="" width="50%"></Input>
+ 
+                <Label id="idlabel294" text="ProcessType:"></Label>
+                <Input id="idinput294" value="" width="50%"></Input>
+ 
+                <Label id="idlabel295" text="SlotNo:"></Label>
+                <Input id="idinput295" value="" width="50%"></Input>
+ 
+               
+ 
+                <HBox>
+                    <Button id="idbtn32" text="Save" press="Assign" type="Accept" />
+                    <Button id="idbtn33" text="Print" press="UnAssign" type="Reject" class="printbtn" />
+                </HBox>
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+                   </ScrollContainer>
+                     <ScrollContainer
+                      id="page6"
+        horizontal="false"
+        vertical="true"
+        height="100%"
+        class="sapUiContentPadding pages">
+ 
+        <form:SimpleForm
+        class="simpleform"
+        id="simpleForm1"
+        layout="ResponsiveGridLayout"
+        width="45%"
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        singleContainerFullSize="true">
+ 
+        <form:content>
+            <VBox>
+           
+                <Title text="Check-out"></Title>
+                <Label ></Label>
+<HBox class="hbox">
+                    <CheckBox text="Dock" selected="true" />
+                    <CheckBox text="UnDock" selected="true" />
+                    <CheckBox text="Invoice" selected="true" />
+                    </HBox>
+                    <Label ></Label>
+               <VBox>
+                <Label id="idlabel741" text="VehicleNumber:"></Label>
+                <Input id="idinput481" value="" width="50%"></Input>
+              </VBox>
+ 
+               <CheckBox text="check-out" selected="true" />
+ 
+                <HBox>
+                    <Button id="idbtn42" text="Save" press="onSaveBtn" type="Accept" />
+                    <Button id="idbtn43" text="Cancel" press="onPrintBtn" type="Reject" class="printbtn" />
+                </HBox>
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+   
+                      </ScrollContainer>
+         
+</pages>
+            </NavContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>
+ 
+ 
+ 
